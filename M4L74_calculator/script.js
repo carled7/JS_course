@@ -17,9 +17,11 @@ function createCalculator() {
                 else if (event.target.classList.contains('btn-erase'))
                     this.input.value = this.input.value.slice(0, -1);
 
-                else {
+                else if (event.target.classList.contains('btn-eq')){
                     if(this.validateInput(this.input.value))
                         this.input.value = eval(this.input.value);
+                    else
+                        this.input.value = '';
                 }
             })
         },
@@ -34,9 +36,10 @@ function createCalculator() {
             });
             
             for (let i = 0; i < input.length; i++) {
-                if (validTypes.indexOf(input[i]) == -1) {
+
+                if (validTypes.indexOf(input[i]) == -1) 
                     return false;
-                }
+                
             }
             return true;
         }
