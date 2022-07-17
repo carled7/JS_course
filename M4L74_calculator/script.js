@@ -19,11 +19,12 @@ function createCalculator() {
 
                 else if (event.target.classList.contains('btn-eq')){
                     if(this.validateInput(this.input.value))
-                        this.input.value = eval(this.input.value);
+                        this.executeExpression(this.input.value);
                     else
                         this.input.value = '';
                 }
             })
+
         },
 
         validateInput(input) {
@@ -42,12 +43,20 @@ function createCalculator() {
                 
             }
             return true;
+        },
+
+        executeExpression(expression){
+            try {
+                this.input.value = eval(expression);
+            } catch (error) {
+                alert("Conta inválida");
+            }
         }
 
     };
 }
 
-const calc = createCalculator();
+const calc = new createCalculator();
 calc.start();
 
 
