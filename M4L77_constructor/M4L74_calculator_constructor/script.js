@@ -9,7 +9,10 @@ function Calculator() {
 
     };
 
-    writeDisplay = (btn) => this.input.value += btn.innerText;
+    writeDisplay = (btn) => {
+        this.input.value += btn.innerText;
+        this.input.focus();
+    }
 
     clearDisplay = () => this.input.value = '';
 

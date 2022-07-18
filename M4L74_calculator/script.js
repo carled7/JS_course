@@ -56,7 +56,7 @@ function createCalculator() {
     };
 }
 
-const calc = new createCalculator();
+const calc = createCalculator();
 calc.start();
 
 
